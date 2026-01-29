@@ -17,6 +17,9 @@ const authorizationMiddleware = require('./middlewares/authorization');
 // console.log(jwt.decode("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OGEyN2M4MTM2OTUzMzY1ZmI4MTFlNzciLCJmaXJzdF9uYW1lIjoiQmhhbnUiLCJsYXN0X25hbWUiOiJKYW5naWQiLCJlbWFpbCI6ImJoYW51QHNhbGVhc3Npc3QuYWkiLCJwYXNzd29yZCI6IjEyMzQ1NiIsImRlbGV0ZWRBdCI6bnVsbCwiY3JlYXRlZEF0IjoiMjAyNS0wOC0xOFQwMTowNjowOS40NDdaIiwidXBkYXRlZEF0IjoiMjAyNS0wOC0xOFQwMTowNjowOS40NDdaIiwiX192IjowLCJpYXQiOjE3NTU2MzA1MjV9.nsqILw75JqvTqfEMeAkUCN9F2GO6-xPZl9hTTKtxrLU"))
 
 const app = express();
+
+const PORT = process.env.PORT || 5000;
+
 app.use(express.json());
 app.use(cookieParser());
 app.use(express.static("./public"));
@@ -38,9 +41,9 @@ app.get("/get-cookies",
     }
 )
 
-mongoose.connect(process.env.MONGOO_DB_URL, { dbName: 'ecommerce' }).then(() => {
-    app.listen(5000, () => {
-        console.log("Server is running on port 5000");
+mongoose.connect(process.env.MONGO_DB_URL, { dbName: 'ecommerce' }).then(() => {
+    app.listen(PORT, () => {
+        console.log(`Server is running on port ${PORT}`);
     })
 }).catch((err) => {
     console.error("Database connection failed:", err);

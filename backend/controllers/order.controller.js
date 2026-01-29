@@ -5,6 +5,7 @@ const Cart = require("../models/cart.model")
 const Razorpay = require("razorpay")
 const crypto = require("crypto");
 const nodemailer = require("nodemailer");
+const { error } = require("console")
 
 const razorpay_instance = new Razorpay({
     key_id: process.env.KEY_ID,
@@ -51,7 +52,8 @@ const OrderController = {
                     receipt: order._id
                 }, async function (err, razorpay_order) {
                     if (err) {
-                        res.send({ message: "Unable to process payment", flag: 0 })
+                        console.log("Error of Razorpay",err)
+                        res.send({ message: "Unable to process payment", flag: 0,error:err.message });
                     } else {
                         order.razorpay_order_id = razorpay_order.id;
                         await order.save();

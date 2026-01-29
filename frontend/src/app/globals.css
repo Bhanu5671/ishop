@@ -58,7 +58,7 @@ body {
 }
 
 /* Firefox */
-/* .custom-scrollbar {
-  scrollbar-width: none;
-  scrollbar-color: rgba(0,0,0,0.3) transparent;
-} */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.3) transparent;
+}
