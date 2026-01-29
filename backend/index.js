@@ -20,7 +20,7 @@ const app = express();
 app.use(express.json());
 app.use(cookieParser());
 app.use(express.static("./public"));
-app.use(cors({ origin: 'http://localhost:3000', credentials: true })); // Allow all origins for CORS
+app.use(cors({ origin: process.env.CORS_ORIGIN, credentials: true })); // Allow all origins for CORS
 
 app.use('/category', CategoryRouter);
 app.use('/color', ColorRouter);
@@ -38,7 +38,7 @@ app.get("/get-cookies",
     }
 )
 
-mongoose.connect('mongodb://127.0.0.1:27017/', { dbName: 'ecommerce' }).then(() => {
+mongoose.connect(process.env.MONGOO_DB_URL, { dbName: 'ecommerce' }).then(() => {
     app.listen(5000, () => {
         console.log("Server is running on port 5000");
     })
