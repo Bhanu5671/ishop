@@ -39,7 +39,7 @@ export default async function AdminLogs() {
                                     >
                                         <td className="p-3 whitespace-nowrap">{index + 1}</td>
                                         <td className="p-3 capitalize whitespace-nowrap">
-                                            {log.adminId.first_name} {log.adminId.last_name}
+                                            {log.adminId?.first_name} {log.adminId?.last_name}
                                         </td>
                                         <td className="p-3 whitespace-nowrap">{log.operation}</td>
                                         <td className="p-3 whitespace-nowrap">{log.model}</td>
