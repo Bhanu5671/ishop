@@ -38,7 +38,7 @@ app.get("/get-cookies",
     }
 )
 
-mongoose.connect(process.env.MONGOO_DB_URL, { dbName: 'ecommerce' }).then(() => {
+mongoose.connect(process.env.MONGO_DB_URL, { dbName: 'ecommerce' }).then(() => {
     app.listen(5000, () => {
         console.log("Server is running on port 5000");
     })
