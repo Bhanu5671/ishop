@@ -1,6 +1,6 @@
 import Hero from "../component/website/Hero"
 import Features from "../component/website/Features"
-import Promo from "../component/website/promo"
+import Promo from "../component/website/Promo"
 import NewArrivals from "../component/website/NewArrivals"
 import BestSelling from "../component/website/BestSelling"
 
