@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react"
 import { FaStar, FaUser, FaCalendarAlt, FaThumbsUp, FaThumbsDown, FaHeart } from "react-icons/fa"
 import { HiOutlineX, HiOutlinePhotograph } from "react-icons/hi"
-import { BiSmile, BiMeh, BiFrown } from "react-icons/bi"
+import { BiSmile, BiMeh, BiSad } from "react-icons/bi"
 import { useSelector } from "react-redux"
 import { axiosApiInstance } from "@/app/library/helper"
 import { toast } from "react-toastify"
@@ -133,7 +133,7 @@ export default function ReviewSection({ product }) {
 
     const getRatingEmoji = (rating) => {
         console.log("Hover Rating",rating)
-        if (Number(rating) <= 2) return <BiFrown className="text-red-500 text-xl" />
+        if (Number(rating) <= 2) return <BiSad className="text-red-500 text-xl" />
         if (Number(rating) <= 3) return <BiMeh className="text-yellow-500 text-xl" />
         return <BiSmile className="text-green-500 text-xl" />
     }
