@@ -1,14 +1,19 @@
 "use client"
 import React, { useEffect, useRef, useState } from 'react'
+import dynamic from "next/dynamic";
 import Link from 'next/link'
 import { toast } from 'react-toastify';
 import { FaBackward } from "react-icons/fa";
 import { axiosApiInstance, getCookie, titletoSlug } from '@/app/library/helper';
-import Select from 'react-select'
 import { getCategoryData, getColorData } from '@/app/library/api-call';
 import ImageUpload from '@/app/component/admin/ImageUpload';
 import RichTextEditor from '@/app/component/website/RichTextEditor';
 import { useRouter } from 'next/navigation';
+const Select = dynamic(() => import("react-select"), {
+    ssr: false,
+});
+
+
 
 export default function AddProduct() {
     const token = getCookie("admin_token");

@@ -1,7 +1,10 @@
 "use client"
 
 import React, { useState, useRef, useMemo } from 'react';
-import JoditEditor from 'jodit-react';
+import dynamic from "next/dynamic";
+const JoditEditor = dynamic(() => import("jodit-react"), {
+	ssr: false,
+});
 
 const RichTextEditor = ({ placeholder, value, changeHandler, defaultValue }) => {
 	const editor = useRef(null);
