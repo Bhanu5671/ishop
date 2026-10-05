@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { IoPersonOutline } from "react-icons/io5";
 import { FcGoogle } from "react-icons/fc";

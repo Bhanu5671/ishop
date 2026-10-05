@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux';
 import { FaCartArrowDown } from "react-icons/fa";
 import { addItem, saveCartToLocalStorage } from '@/redux/features/cartSlice';
