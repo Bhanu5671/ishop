@@ -12,7 +12,7 @@ export default function ProfilePage() {
     const [editingProfile, setEditingProfile] = useState(false)
     const user = useSelector((store) => store.user)
     const dispatch = useDispatch()
-
+    
     const [userProfile, setUserProfile] = useState({
         name: user?.data?.name,
         email: user?.data?.email,

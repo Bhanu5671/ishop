@@ -16,7 +16,7 @@ export default function AdminLoginPage() {
             email: emailRef.current.value,
             password: passwordRef.current.value
         }
-
+        
         axiosApiInstance.post("/login/checklogin", data, {
             withCredentials: true
         }).then((response) => {

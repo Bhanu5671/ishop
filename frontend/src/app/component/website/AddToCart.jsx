@@ -9,8 +9,15 @@ export default function AddToCart({ product }) {
     const dispatch = useDispatch();
     const [toggle, setToggle] = useState(true)
 
-    const lsUser = localStorage.getItem("user");
-    const user = lsUser ? JSON.parse(lsUser) : null
+    // const lsUser = localStorage.getItem("user");
+    // const user = lsUser ? JSON.parse(lsUser) : null
+
+    useEffect(() => {
+        const lsUser = localStorage.getItem("user");
+        const user = lsUser ? JSON.parse(lsUser) : null;
+
+        console.log("User from Local Storage:", user);
+    }, []);
 
     const addToCartHandler = async () => {
         if (user?.user != null) {

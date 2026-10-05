@@ -13,10 +13,18 @@ export default function AuthPage() {
     const [isLogin, setIsLogin] = useState(true);
 
     const [error, setError] = useState({ confirmPassword: "" }, { password: "" }, { email: "" });
-    const lsCart = localStorage.getItem("cart");
-    const cart = lsCart ? JSON.parse(lsCart) : null;
+    // const lsCart = localStorage.getItem("cart");
+    // const cart = lsCart ? JSON.parse(lsCart) : null;
 
-    console.log("Cart item In Local", cart)
+    // console.log("Cart item In Local", cart)
+
+    useEffect(() => {
+        const lsCart = localStorage.getItem("cart");
+        const cart = lsCart ? JSON.parse(lsCart) : null;
+
+        console.log("Cart item In Local", cart);
+    }, []);
+
 
     const router = useRouter();
     const param = useSearchParams();

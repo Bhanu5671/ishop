@@ -44,7 +44,7 @@ export default function CheckoutPage() {
     useEffect(() => {
         saveUserToLocalStorage()
     }, [])
-
+    
     const handleDeleteAddress = (index, user_id) => {
         if (user.data != null) {
             axiosApiInstance
