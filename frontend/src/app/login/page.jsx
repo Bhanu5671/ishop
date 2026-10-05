@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState, useEffect } from "react";
+import React, { Suspense, useState, useEffect } from "react";
 import Link from "next/link";
 import { IoPersonOutline } from "react-icons/io5";
 import { FcGoogle } from "react-icons/fc";
@@ -9,7 +9,7 @@ import { useSearchParams, useRouter } from "next/navigation";
 
 
 
-export default function AuthPage() {
+function Login() {
     const [isLogin, setIsLogin] = useState(true);
 
     const [error, setError] = useState({ confirmPassword: "" }, { password: "" }, { email: "" });
@@ -221,5 +221,14 @@ export default function AuthPage() {
                 </p>
             </div>
         </div>
+    );
+}
+
+
+export default function AuthPage() {
+    return (
+        <Suspense fallback={<div>Loading...</div>}>
+            <Login />
+        </Suspense>
     );
 }

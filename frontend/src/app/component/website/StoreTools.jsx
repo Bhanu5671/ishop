@@ -1,10 +1,10 @@
 "use client"
 
-import React from 'react'
+import React, {Suspense} from 'react'
 import Select from 'react-select';
 import { useRouter, useSearchParams } from 'next/navigation';
 import SidebarFilters from './SidebarFilters';
-export default function StoreTools() {
+function Stores() {
 
     const options = [
         { value: 'sortByName=1', label: 'Name: Ascending Order' },
@@ -82,4 +82,13 @@ export default function StoreTools() {
             </div>
         </div>
     )
+}
+
+
+export default function StoreTools() {
+    return (
+        <Suspense fallback={<div>Loading...</div>}>
+            <Stores />
+        </Suspense>
+    );
 }

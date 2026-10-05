@@ -1,11 +1,11 @@
 "use client"
 
-import React from 'react'
+import React, {Suspense} from 'react'
 import RangeSlider from 'react-range-slider-input';
 import 'react-range-slider-input/dist/style.css';
 import { useRouter, useSearchParams } from 'next/navigation';
 
-export default function RangeSelect() {
+function Range() {
 
     const [price, setPrice] = React.useState([100, 150000]);
     const router = useRouter();
@@ -53,4 +53,14 @@ export default function RangeSelect() {
             </div>
         </div>
     )
+}
+
+
+
+export default function RangeSelect() {
+    return (
+        <Suspense fallback={<div>Loading...</div>}>
+            <Range />
+        </Suspense>
+    );
 }

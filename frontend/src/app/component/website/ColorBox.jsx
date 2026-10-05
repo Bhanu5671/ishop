@@ -1,10 +1,10 @@
 "use client"
 
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, Suspense } from 'react'
 import { getColorData } from '@/app/library/api-call';
 import { useRouter, useSearchParams } from 'next/navigation';
 
-export default function ColorBox() {
+function Color() {
 
     const [colors, setColors] = useState([]);
     const [user_color, setUserColor] = useState([]);
@@ -66,3 +66,15 @@ export default function ColorBox() {
         </div>
     )
 }
+
+
+
+export default function ColorBox() {
+    return (
+        <Suspense fallback={<div>Loading...</div>}>
+            <Color />
+        </Suspense>
+    );
+}
+
+
